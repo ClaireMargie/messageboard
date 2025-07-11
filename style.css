@@ -1,0 +1,458 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #22223b;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    position: relative;
+}
+
+.container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(99,102,241,0.08);
+    margin: 3rem 0 2rem 0;
+    padding: 3rem 2.5rem 2.5rem 2.5rem;
+    max-width: 800px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: #22223b;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #e0e7ff;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    background: #f5f7fa;
+    color: #22223b;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(99,102,241,0.25);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.messages-list {
+    list-style: none;
+    padding: 0;
+    max-height: 500px;
+    overflow-y: auto;
+    margin-top: 2.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: #6366f1 #f5f7fa;
+}
+
+.messages-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages-list::-webkit-scrollbar-track {
+    background: #f5f7fa;
+    border-radius: 4px;
+}
+
+.messages-list::-webkit-scrollbar-thumb {
+    background: #6366f1;
+    border-radius: 4px;
+}
+
+.messages-list::-webkit-scrollbar-thumb:hover {
+    background: #4f46e5;
+}
+
+.message-item {
+    background: #f5f7fa;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+    position: relative;
+    transition: all 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.message-item:hover {
+    box-shadow: 0 4px 16px rgba(99,102,241,0.15);
+    transform: translateY(-1px);
+}
+
+.message-header {
+    font-weight: 600;
+    color: #6366f1;
+    margin-bottom: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.message-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #22223b;
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.message-email {
+    font-size: 1rem;
+    color: #4a4e69;
+    font-weight: 400;
+}
+
+.message-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    gap: 1rem;
+}
+
+.message-date {
+    font-size: 0.95rem;
+    color: #6b7280;
+    font-weight: 400;
+    margin-right: 1rem;
+    flex: 1;
+    text-align: right;
+}
+
+.message-body {
+    color: #22223b;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    font-size: 1.05rem;
+}
+
+.message-actions {
+    position: static;
+    display: flex;
+    gap: 0.75rem;
+    margin-left: 1rem;
+}
+
+.message-actions button {
+    background: none;
+    border: none;
+    color: #ec4899;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: inherit;
+}
+
+.message-actions button:hover {
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.btn-edit:hover {
+    color: #6366f1;
+}
+
+.btn-delete:hover {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.edit-form {
+    padding: 0.75rem 0;
+}
+
+.edit-input {
+    width: 100%;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #e0e7ff;
+    font-size: 1rem;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.edit-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99,102,241,0.1);
+}
+
+.edit-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.edit-actions button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: inherit;
+}
+
+.btn-save {
+    background: #10b981;
+    color: white;
+}
+
+.btn-save:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+.btn-save:active {
+    transform: translateY(0);
+}
+
+.btn-cancel {
+    background: #6b7280;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background: #4b5563;
+    transform: translateY(-1px);
+}
+
+.btn-cancel:active {
+    transform: translateY(0);
+}
+
+.no-messages {
+    text-align: center;
+    color: #6b7280;
+    font-style: italic;
+    padding: 3rem;
+    background: #f9fafb;
+    border-radius: 12px;
+    border: 2px dashed #d1d5db;
+    list-style: none;
+    font-size: 1.1rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin: 2rem 0 0 2rem;
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: #ec4899;
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1.2rem 2rem;
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    max-width: 350px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.notification-error {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.notification-info {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+/* Loading state */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+        width: 95%;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .message-actions {
+        position: static;
+        margin-top: 1rem;
+        justify-content: flex-end;
+    }
+    
+    .message-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+    
+    .message-date {
+        margin-left: 0;
+    }
+    
+    .notification {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    .edit-actions {
+        flex-direction: column;
+    }
+    
+    .edit-actions button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem 1rem;
+        margin: 0.5rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+        font-size: 1rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+    
+    .submit-btn {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .message-item {
+        padding: 1rem;
+    }
+    
+    .message-name {
+        font-size: 1.1rem;
+    }
+    
+    .message-body {
+        font-size: 1rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .message-actions,
+    .back-link,
+    .submit-btn,
+    .edit-form {
+        display: none !important;
+    }
+    
+    .container {
+        box-shadow: none;
+        margin: 0;
+        padding: 1rem;
+    }
+} 
